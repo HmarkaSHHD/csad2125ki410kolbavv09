@@ -17,3 +17,12 @@ tic-tac-toe 3x3 game.
 ### Technical details
 
 - Programming language: Pyton
+
+## Task 2
+
+To run code try:
+
+1. install and run com0com 
+2. Run server.py
+3. Run client.py
+
