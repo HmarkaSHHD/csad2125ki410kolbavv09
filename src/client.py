@@ -4,8 +4,8 @@ import time
 
 def run_client():
     try:
-        ser = serial.Serial('COM4', 9600, timeout=1)
-        print("Client is connected on COM4...")
+        ser = serial.Serial('COM12', 9600, timeout=1)
+        print("Client is connected on COM12...")
 
         if ser.is_open:
             message = "Hello, Virtual Server!"

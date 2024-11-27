@@ -2,8 +2,8 @@ import serial
 
 def run_server():
     try:
-        ser = serial.Serial('COM3', 9600, timeout=1)
-        print("Server is running on COM3...")
+        ser = serial.Serial('COM11', 9600, timeout=1)
+        print("Server is running on COM11...")
 
         while True:
 
