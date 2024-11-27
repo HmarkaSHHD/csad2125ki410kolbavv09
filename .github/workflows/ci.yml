@@ -25,11 +25,11 @@ jobs:
       run: pip install pyserial
 
     - name: Run Server in Background
-      run: start /B python server.py
+      run: start /B python ./src/server.py
       shell: cmd
 
     - name: Run Client Test
-      run: python client.py
+      run: python ./src/client.py
 
     - name: Cleanup
       run: taskkill /F /IM python.exe
