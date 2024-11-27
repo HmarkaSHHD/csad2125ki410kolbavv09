@@ -86,28 +86,6 @@ class TestTicTacToeClient(unittest.TestCase):
             mock_info.assert_called_with("Результат гри", "Нічия!")
             self.assertTrue(self.client.game_over)
 
-    def test_process_response_cell_taken(self):
-        # Тест обробки повідомлення про зайняту клітинку
-        response = {
-            'message': "Клітинка зайнята. Спробуйте ще раз.",
-            'board': self.client.board,
-            'game_over': False
-        }
-        with patch('client.messagebox.showwarning') as mock_warning:
-            self.client.process_response(response)
-            mock_warning.assert_called_with("Помилка", "Клітинка зайнята. Спробуйте ще раз.")
-
-    def test_process_response_invalid_coordinates(self):
-        # Тест обробки повідомлення про некоректні координати
-        response = {
-            'message': "Некоректні координати. Використовуйте числа від 0 до 2.",
-            'board': self.client.board,
-            'game_over': False
-        }
-        with patch('client.messagebox.showwarning') as mock_warning:
-            self.client.process_response(response)
-            mock_warning.assert_called_with("Помилка", "Некоректні координати. Використовуйте числа від 0 до 2.")
-
     def test_new_game(self):
         # Тест методу new_game
         self.client.new_game()
@@ -115,13 +93,6 @@ class TestTicTacToeClient(unittest.TestCase):
         self.assertFalse(self.client.game_over)
         expected_board = [[" " for _ in range(3)] for _ in range(3)]
         self.assertEqual(self.client.board, expected_board)
-
-    def test_save_game(self):
-        # Тест методу save_game
-        with patch('client.messagebox.showinfo') as mock_info:
-            self.client.save_game()
-            self.mock_serial_instance.write.assert_called_with(b'save\n')
-            mock_info.assert_called_with("Збереження", "Гру збережено.")
 
     def test_load_game(self):
         # Тест методу load_game

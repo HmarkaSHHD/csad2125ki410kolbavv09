@@ -17,7 +17,7 @@ class TicTacToeServer:
     @details Відповідає за логіку гри, збереження/завантаження стану гри, обробку команд та взаємодію через COM-порт.
     """
 
-    def __init__(self, port='COM11', baudrate=9600):
+    def __init__(self, port='COM3', baudrate=9600):
         """
         @brief Конструктор класу TicTacToeServer
         @param port COM-порт, який буде використовуватись для взаємодії.
@@ -264,4 +264,3 @@ class TicTacToeServer:
 
 if __name__ == "__main__":
     server = TicTacToeServer()
-
